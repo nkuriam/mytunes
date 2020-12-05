@@ -17,6 +17,7 @@ export default function Layout({ children, libraryStatus }) {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <title>My Tunes</title>
       </Head>
       {children}
     </div>
