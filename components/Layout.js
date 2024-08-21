@@ -13,7 +13,7 @@ export default function Layout({ children, libraryStatus }) {
         />
         <meta
           property="og:image"
-          content="https://chillhop.com/wp-content/uploads/2020/10/efaa848553d09b4d9fc0752844456e41b34de276-1024x1024.jpg"
+          content="https://cdn.homerun.co/default/we-are-hiring-share-og.jpg"
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
