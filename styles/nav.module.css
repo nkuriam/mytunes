@@ -26,6 +26,14 @@
   font-weight: 600;
 }
 
+.nav button:disabled {
+  border: 2px solid rgb(201, 198, 198);
+}
+
+.nav button:disabled {
+  pointer-events: none;
+}
+
 @media screen and (max-width: 768px) {
   .nav button {
     z-index: 10;

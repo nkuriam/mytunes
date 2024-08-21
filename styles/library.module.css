@@ -58,3 +58,11 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 1465px) {
+  .library {
+    box-shadow: 1px 1px 4px rgb(204, 204, 204);
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

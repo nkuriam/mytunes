@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/nav.module.css";
 
-const Nav = ({ libraryStatus, setLibraryStatus }) => {
+const Nav = ({ libraryStatus, setLibraryStatus, isLargeScreen }) => {
   return (
     <nav className={styles.nav}>
       <h1>
@@ -14,7 +14,7 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
         {/* <span className="forward-slash">/</span> */}
         <FontAwesomeIcon icon={faAngleRight} />
       </h1>
-      <button onClick={() => setLibraryStatus(!libraryStatus)}>
+      <button onClick={() => setLibraryStatus(!libraryStatus)} disabled={isLargeScreen}>
         Library <FontAwesomeIcon icon={faMusic} />
       </button>
     </nav>

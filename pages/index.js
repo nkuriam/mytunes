@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Nav from "../components/Nav";
 import Song from "../components/Song";
 import Player from "../components/Player";
@@ -16,8 +16,21 @@ export default function Home({ data }) {
     duration: 0,
     animationPercentage: 0,
   });
+  const [isLargeScreen, setIsLargeScreen] = useState(false)
 
   const audioRef = useRef();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1465)
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
@@ -44,7 +57,7 @@ export default function Home({ data }) {
 
   return (
     <Layout libraryStatus={libraryStatus}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} isLargeScreen={isLargeScreen} />
       <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
         songs={songs}
