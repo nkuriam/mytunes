@@ -51,8 +51,17 @@ export default function Home({ data }) {
 
   const songEndHandler = async () => {
     const index = songs.findIndex((s) => s.id === currentSong.id);
-    await setCurrentSong(songs[(index + 1) % songs.length]);
-    if (isPlaying) audioRef.current.play();
+    setCurrentSong(songs[(index + 1) % songs.length]);
+    
+    if (isPlaying) {
+      try {
+        await audioRef.current.play()
+      } catch (e) {
+        console.error('Error', e)
+        console.log('Retrying...')
+        await audioRef.current.play()
+      }
+    };
   };
 
   return (
